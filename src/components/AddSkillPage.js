@@ -1,29 +1,10 @@
 import { useState } from 'react';
 import './SkillForm.css'; // Import the CSS file for styling
 
-const categoryOptions = [
-    { value: 'web', label: 'Web Development' },
-    { value: 'data', label: 'Data Science' },
-    { value: 'design', label: 'Design' },
-    { value: 'marketing', label: 'Marketing' },
-    { value: 'finance', label: 'Finance' },
-    { value: 'education', label: 'Education' },
-    { value: 'health', label: 'Health' }
-];
-
-const talentOptions = [
-    { value: 'frontend', label: 'Frontend Development' },
-    { value: 'backend', label: 'Backend Development' },
-    { value: 'machine-learning', label: 'Machine Learning' },
-    { value: 'ux-ui', label: 'UX/UI Design' },
-    { value: 'graphic-design', label: 'Graphic Design' },
-    { value: 'seo', label: 'SEO' }
-];
-
 const AddSkillPage = () => {
     const [profilePic, setProfilePic] = useState(null);
-    const [category, setCategory] = useState('');
-    const [talent, setTalent] = useState('');
+    const [categories, setCategories] = useState([]);
+    const [talents, setTalents] = useState([]);
     const [logo, setLogo] = useState(null);
     const [modules, setModules] = useState([{ title: '', content: '' }]);
     const [additionalInfo, setAdditionalInfo] = useState('');
@@ -31,9 +12,15 @@ const AddSkillPage = () => {
     const handleProfilePicChange = (e) => setProfilePic(URL.createObjectURL(e.target.files[0]));
     const handleLogoChange = (e) => setLogo(URL.createObjectURL(e.target.files[0]));
 
-    const handleCategoryChange = (e) => setCategory(e.target.value);
+    const handleCategoryChange = (e) => {
+        const selectedOptions = Array.from(e.target.selectedOptions, option => option.value);
+        setCategories(selectedOptions);
+    };
 
-    const handleTalentChange = (e) => setTalent(e.target.value);
+    const handleTalentChange = (e) => {
+        const selectedOptions = Array.from(e.target.selectedOptions, option => option.value);
+        setTalents(selectedOptions);
+    };
 
     const handleModuleChange = (index, e) => {
         const { name, value } = e.target;
@@ -45,29 +32,31 @@ const AddSkillPage = () => {
     const addModule = () => setModules([...modules, { title: '', content: '' }]);
 
     const validateForm = () => {
-        if (!logo) {
-            return 'Please upload a logo or video.';
-        }
+        // Example validation: ensure at least one module is filled
         if (modules.length === 0 || modules.some(module => !module.title || !module.content)) {
             return 'Please fill out at least one module with title and content.';
         }
+
+        // Additional validations can be added as required
         return '';
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Validate the form
         const errorMessage = validateForm();
         if (errorMessage) {
             alert(errorMessage);
             return;
         }
 
+        // Prepare form data
         const formDataToSend = new FormData();
         if (profilePic) formDataToSend.append('profilePic', profilePic);
         if (logo) formDataToSend.append('logo', logo);
-        formDataToSend.append('category', category);
-        formDataToSend.append('talent', talent);
+        formDataToSend.append('categories', JSON.stringify(categories));
+        formDataToSend.append('talents', JSON.stringify(talents));
         formDataToSend.append('additionalInfo', additionalInfo);
 
         modules.forEach((module, index) => {
@@ -83,18 +72,19 @@ const AddSkillPage = () => {
 
             const result = await response.json();
             if (response.ok) {
-                alert('Skill created successfully!');
+                alert('Skill added successfully');
+                // Optionally redirect or reset the form
                 setProfilePic(null);
-                setCategory('');
-                setTalent('');
+                setCategories([]);
+                setTalents([]);
                 setLogo(null);
                 setModules([{ title: '', content: '' }]);
                 setAdditionalInfo('');
             } else {
-                alert(result.error || 'Failed to create skill');
+                alert(result.error || 'Failed to add skill');
             }
         } catch (error) {
-            console.error('Error creating skill:', error);
+            console.error('Error adding skill:', error);
             alert('An unexpected error occurred');
         }
     };
@@ -112,22 +102,31 @@ const AddSkillPage = () => {
 
                 <div className="input-group">
                     <label htmlFor="category">Category</label>
-                    <select id="category" value={category} onChange={handleCategoryChange}>
-                        <option value="">Select Category</option>
-                        {categoryOptions.map(option => (
-                            <option key={option.value} value={option.value}>{option.label}</option>
-                        ))}
+                    <select id="category" multiple value={categories} onChange={handleCategoryChange}>
+                        <option value="web">Web Development</option>
+                        <option value="data">Data Science</option>
+                        <option value="design">Design</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="finance">Finance</option>
+                        <option value="education">Education</option>
+                        <option value="health">Health</option>
+                        {/* Add more categories as needed */}
                     </select>
+                    <p>Selected Categories: {categories.join(', ')}</p>
                 </div>
 
                 <div className="input-group">
                     <label htmlFor="talent">Talent</label>
-                    <select id="talent" value={talent} onChange={handleTalentChange}>
-                        <option value="">Select Talent</option>
-                        {talentOptions.map(option => (
-                            <option key={option.value} value={option.value}>{option.label}</option>
-                        ))}
+                    <select id="talent" multiple value={talents} onChange={handleTalentChange}>
+                        <option value="frontend">Frontend Development</option>
+                        <option value="backend">Backend Development</option>
+                        <option value="machine-learning">Machine Learning</option>
+                        <option value="ux-ui">UX/UI Design</option>
+                        <option value="graphic-design">Graphic Design</option>
+                        <option value="seo">SEO</option>
+                        {/* Add more talents as needed */}
                     </select>
+                    <p>Selected Talents: {talents.join(', ')}</p>
                 </div>
 
                 <div className="input-group">

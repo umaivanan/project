@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
 const LoginPage = () => {
@@ -16,7 +16,7 @@ const LoginPage = () => {
         password: ""
     });
 
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate(); 
 
     const handleInput = (event) => {
         setInputs({ ...inputs, [event.target.name]: event.target.value });
@@ -27,7 +27,6 @@ const LoginPage = () => {
         let errors = { ...initialStateErrors };
         let hasError = false;
 
-        // Validate inputs
         if (inputs.email === "") {
             errors.email.required = true;
             hasError = true;
@@ -56,11 +55,17 @@ const LoginPage = () => {
             const data = await response.json();
 
             if (response.ok) {
+                localStorage.setItem('token', data.token); // Store token in localStorage
                 console.log("User logged in successfully:", data);
-                // Navigate to the next page on success
-                navigate('/add-skill'); // Redirect to the desired page
+
+                // Navigate to the dashboard based on role
+                if (data.role === 'admin') {
+                    navigate('/admin-dashboard');
+                } else {
+                    navigate('/user-dashboard');
+                }
             } else {
-                setErrors({ ...errors, custom_error: data.message || 'Something went wrong' });
+                setErrors({ ...errors, custom_error: data.error || 'Something went wrong' });
             }
         } catch (error) {
             console.error("Error occurred:", error);

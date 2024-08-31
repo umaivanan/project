@@ -1,10 +1,13 @@
 import './App.css';
 import RegisterPage from './components/RegisterPage';
-import LoginPage from './components/LoginPage'; // Import the new LoginPage component
+import LoginPage from './components/LoginPage';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
+import AddSkillPage from './components/AddSkillPage';
+import AdminDashboard from './components/AdminDashboard';
+import UserDashboard from './components/UserDashboard';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AddSkillPage from './components/AddSkillPage'; // Import the AddSkillPage component
+
 function App() {
   return (
     <Router>
@@ -12,8 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} /> {/* Add this line */}
-        <Route path="/add-skill" element={<AddSkillPage />} /> {/* Add this line */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/add-skill" element={<AddSkillPage />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/user-dashboard" element={<UserDashboard />} />
       </Routes>
     </Router>
   );

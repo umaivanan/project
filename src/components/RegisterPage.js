@@ -18,7 +18,7 @@ const RegisterPage = () => {
         password: ""
     });
 
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate(); 
 
     const handleInput = (event) => {
         setInputs({ ...inputs, [event.target.name]: event.target.value });
@@ -29,7 +29,6 @@ const RegisterPage = () => {
         let errors = { ...initialStateErrors };
         let hasError = false;
 
-        // Validate inputs
         if (inputs.name === "") {
             errors.name.required = true;
             hasError = true;
@@ -63,10 +62,12 @@ const RegisterPage = () => {
 
             if (response.ok) {
                 console.log("User registered successfully:", data);
-                // Navigate to the Home page on successful registration
-                navigate('/add-skill'); // Redirect to the Home page
+                if (data.role === 'admin') {
+                    navigate('/admin-dashboard');
+                } else {
+                    navigate('/user-dashboard');
+                }
             } else {
-                // Display specific backend error messages
                 setErrors({ ...errors, custom_error: data.error || 'Something went wrong' });
             }
         } catch (error) {
