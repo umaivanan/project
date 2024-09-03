@@ -1,12 +1,12 @@
-import React from 'react';
+
+import './SkillForm.css'; // Import the CSS file for styling
 
 const UserDashboard = () => {
-    return (
+    return(
         <div>
-            <h1>User Dashboard</h1>
-            <p>Welcome! Here you can manage your skills, view your progress, and more.</p>
+            <h1>UserDashboard</h1>
         </div>
-    );
+    )
 };
 
 export default UserDashboard;

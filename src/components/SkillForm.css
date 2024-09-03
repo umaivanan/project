@@ -1,107 +1,65 @@
-/* src/components/SkillForm.css */
-
-.add-skill-container {
-    max-width: 800px;
+SkillForm.css
+.container {
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.skill-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.profile-section {
+    background-color: #f5e7b2; /* Light Grey background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    color: #973131; /* Dark Red */
     text-align: center;
     margin-bottom: 20px;
-}
-
-.profile-pic {
-    position: relative;
-    display: inline-block;
-}
-
-.profile-pic img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-}
-
-.pic-placeholder {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.input-group input,
-.input-group select,
-.input-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.logo-upload {
+  }
+  
+  form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+  }
+  
+  div {
     margin-bottom: 15px;
-}
-
-.logo-upload img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-}
-
-.upload-placeholder {
-    width: 150px;
-    height: 150px;
-    background-color: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-}
-
-.module-group {
-    border: 1px solid #ddd;
-    padding: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #973131; /* Dark Red */
+  }
+  
+  input[type="file"],
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0a75e; /* Light Red */
     border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-.module-group h3 {
-    margin-top: 0;
-}
-
-.submit-btn {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 15px;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"] {
+    background-color: #ffffff; /* White background for text input */
+  }
+  
+  button {
+    background-color: #973131; /* Dark Red */
+    color: #ffffff; /* White text */
     border: none;
+    padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-}
-
-.submit-btn:hover {
-    background-color: #0056b3;
-}
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #e0a75e; /* Light Red */
+  }
+  
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+  

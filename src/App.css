@@ -1,38 +1,22 @@
-.App {
-  text-align: center;
+/* App.css */
+.light-theme {
+  background-color: #f0f0f0; /* Light theme background */
+  color: #333; /* Text color for light theme */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dark-theme {
+  background-color: #1a1a1a; /* Dark theme background */
+  color: #fff; /* Text color for dark theme */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dark-theme-container {
+  background-color: #1a1a1a; /* Dark theme background */
+  color: #fff; /* Text color for dark theme */
+  padding: 20px; /* Add padding if needed */
+  min-height: 100vh; /* Ensure the container takes full height */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero, .navbar {
+  background-color: #ffffff; /* Light background for Hero and Navbar */
+  color: #333; /* Text color for light theme */
 }
