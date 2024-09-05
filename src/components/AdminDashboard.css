@@ -1,0 +1,73 @@
+/* General Styling for Admin Dashboard */
+.admin-dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f5e7b2; /* Lightest yellowish background */
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #973131; /* Dark red */
+    margin-bottom: 40px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+  }
+  
+  thead {
+    background-color: #e0a75e; /* Medium orange for table headers */
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    color: #973131; /* Dark red for text */
+  }
+  
+  th {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f5e7b2; /* Light yellow for header text */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9d689; /* Pale yellow for alternating rows */
+  }
+  
+  tr:hover {
+    background-color: #e0a75e; /* Highlight on hover */
+  }
+  
+  /* Button styling */
+  button {
+    background-color: #973131; /* Dark red for buttons */
+    color: #f5e7b2; /* Light yellow for button text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #e0a75e; /* Change button color on hover to medium orange */
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 28px;
+    }
+  
+    th, td {
+      font-size: 16px;
+      padding: 8px;
+    }
+  }
+  

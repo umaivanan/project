@@ -4,7 +4,7 @@ import LoginPage from './components/LoginPage';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import AdminDashboard from './components/AdminDashboard';
-import UserDashboard from './components/UserDashboard';
+import Blank from './components/Blank';
 import SkillForm from './components/SkillForm';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -17,8 +17,8 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
-        <Route path="/user-dashboard" element={<UserDashboard />} />
-        <Route path="/skill-form" element={<SkillForm />} /> {/* Add this line */}
+        <Route path="/blank" element={<Blank />} />
+        <Route path="/skill-form" element={<SkillForm />} /> {/* SkillForm route */}
       </Routes>
     </Router>
   );

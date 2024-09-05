@@ -1,65 +1,44 @@
-SkillForm.css
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5e7b2; /* Light Grey background */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    color: #973131; /* Dark Red */
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  div {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #973131; /* Dark Red */
-  }
-  
-  input[type="file"],
-  input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #e0a75e; /* Light Red */
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  input[type="text"] {
-    background-color: #ffffff; /* White background for text input */
-  }
-  
-  button {
-    background-color: #973131; /* Dark Red */
-    color: #ffffff; /* White text */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #e0a75e; /* Light Red */
-  }
-  
-  button:focus {
-    outline: none;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-  }
-  
+.skill-form-container {
+  width: 50%;
+  margin: auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.skill-form-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

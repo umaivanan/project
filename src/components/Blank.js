@@ -1,7 +1,7 @@
 
 import './SkillForm.css'; // Import the CSS file for styling
 
-const UserDashboard = () => {
+const Blank= () => {
     return(
         <div>
             <h1>UserDashboard</h1>
@@ -9,4 +9,4 @@ const UserDashboard = () => {
     )
 };
 
-export default UserDashboard;
+export default Blank;

@@ -1,58 +1,52 @@
 import React, { useState } from 'react';
-import './SkillForm.css'
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import './SkillForm.css';
+import axios from 'axios';
+
 const SkillForm = () => {
-  const [profilePicture, setProfilePicture] = useState(null);
-  const [skillCategories, setSkillCategories] = useState([]);
-  const [pdfModule, setPdfModule] = useState(null);
-
-  const handleProfilePictureChange = (e) => {
-    setProfilePicture(e.target.files[0]);
-  };
-
-  const handlePdfModuleChange = (e) => {
-    setPdfModule(e.target.files[0]);
-  };
-
-  const handleSkillCategoriesChange = (e) => {
-    setSkillCategories(e.target.value.split(','));
-  };
+  const [profileName, setProfileName] = useState('');
+  const [skillCategory, setSkillCategory] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate for navigation
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const formData = new FormData();
-    formData.append('profilePicture', profilePicture);
-    formData.append('pdfModule', pdfModule);
-    formData.append('skillCategories', skillCategories.join(','));
-
     try {
-      const response = await fetch('http://localhost:8600/api/skills/add', {
-        method: 'POST',
-        body: formData,
+      const response = await axios.post('http://localhost:8600/api/skills', {
+        profileName,
+        skillCategory
       });
-
-      const result = await response.json();
-      console.log(result);
+      console.log(response.data);
+      // Redirect to Blank.js after successful submission
+      navigate('/blank');
     } catch (error) {
-      console.error('Error:', error);
+      console.error(error);
+      // Handle error (e.g., show an error message)
     }
   };
 
   return (
-    <div>
-      <h1>Submit Your Skill</h1>
+    <div className="skill-form-container">
+      <h2>Add Your Skill</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Profile Picture:</label>
-          <input type="file" onChange={handleProfilePictureChange} />
+        <div className="form-group">
+          <label htmlFor="profileName">Profile Name</label>
+          <input
+            type="text"
+            id="profileName"
+            value={profileName}
+            onChange={(e) => setProfileName(e.target.value)}
+            required
+          />
         </div>
-        <div>
-          <label>Skill Categories (comma-separated):</label>
-          <input type="text" onChange={handleSkillCategoriesChange} />
-        </div>
-        <div>
-          <label>PDF Module:</label>
-          <input type="file" onChange={handlePdfModuleChange} />
+        <div className="form-group">
+          <label htmlFor="skillCategory">Skill Category</label>
+          <input
+            type="text"
+            id="skillCategory"
+            value={skillCategory}
+            onChange={(e) => setSkillCategory(e.target.value)}
+            required
+          />
         </div>
         <button type="submit">Submit</button>
       </form>
