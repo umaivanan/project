@@ -1,0 +1,78 @@
+.skilllist-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.left-section, .center-section, .right-section {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.left-section {
+  max-width: 250px;
+}
+
+.user-info {
+  text-align: center;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.center-section {
+  flex: 2;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.skill-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.skill-name {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.skill-category {
+  color: #888;
+}
+
+.profile-picture {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.right-section {
+  max-width: 250px;
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-list li {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}

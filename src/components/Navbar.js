@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
-import logo from '/home/ukijaffna/Documents/project/my-final/src/assets/lo2.jpg';
+// import logo from '/home/ukijaffna/Documents/project/my-final/src/assets/lo2.jpg';
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <nav className="main">
-      <img src={logo} alt="Smart Swap Logo" className="logo" />
+      {/* <img src={logo} alt="Smart Swap Logo" className="logo" /> */}
       <ul>
         {!isLoggedIn ? (
           <li>

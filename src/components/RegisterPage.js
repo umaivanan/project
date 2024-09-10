@@ -65,7 +65,7 @@ const RegisterPage = () => {
                 if (data.role === 'admin') {
                     navigate('/admin-dashboard');
                 } else {
-                    navigate('/user-dashboard');
+                    navigate('/link');
                 }
             } else {
                 setErrors({ ...errors, custom_error: data.error || 'Something went wrong' });

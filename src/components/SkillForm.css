@@ -1,44 +1,61 @@
-.skill-form-container {
-  width: 50%;
-  margin: auto;
-  padding: 2rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+/* SkillForm.css */
+
+/* General body styling to center the form vertically and horizontally */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9d689; /* Light cream background */
+  font-family: 'Arial', sans-serif;
 }
 
-.skill-form-container h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.form-group input {
+form {
+  background-color: #f5e7b2; /* Light yellow background for the form */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  max-width: 400px;
 }
 
-button {
+form div {
+  margin-bottom: 15px;
+}
+
+label {
   display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #973131; /* Dark red for the labels */
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="file"] {
   width: 100%;
-  padding: 0.5rem;
-  background-color: #007bff;
+  padding: 10px;
+  border: 1px solid #e0a75e; /* Light brown border */
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #e0a75e; /* Light brown background */
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #0056b3;
+button[type="submit"]:hover {
+  background-color: #973131; /* Dark red on hover */
 }

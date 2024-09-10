@@ -1,56 +1,69 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-import './SkillForm.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import './SkillForm.css';
 
 const SkillForm = () => {
   const [profileName, setProfileName] = useState('');
   const [skillCategory, setSkillCategory] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate for navigation
+  const [profilePicture, setProfilePicture] = useState(null);
+  const navigate = useNavigate(); // Create navigate function
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('profileName', profileName);
+    formData.append('skillCategory', skillCategory);
+    if (profilePicture) {
+      formData.append('profilePicture', profilePicture);
+    }
+
     try {
-      const response = await axios.post('http://localhost:8600/api/skills', {
-        profileName,
-        skillCategory
+      const response = await axios.post('http://localhost:8600/api/skills', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
       console.log(response.data);
+
       // Redirect to Blank.js after successful submission
-      navigate('/blank');
+      navigate('/list'); // Assuming Blank.js route is set to '/blank'
     } catch (error) {
-      console.error(error);
-      // Handle error (e.g., show an error message)
+      console.error('Error uploading skill', error);
     }
   };
 
   return (
-    <div className="skill-form-container">
-      <h2>Add Your Skill</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="profileName">Profile Name</label>
-          <input
-            type="text"
-            id="profileName"
-            value={profileName}
-            onChange={(e) => setProfileName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="skillCategory">Skill Category</label>
-          <input
-            type="text"
-            id="skillCategory"
-            value={skillCategory}
-            onChange={(e) => setSkillCategory(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="profileName">Profile Name</label>
+        <input
+          type="text"
+          id="profileName"
+          value={profileName}
+          onChange={(e) => setProfileName(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="skillCategory">Skill Category</label>
+        <input
+          type="text"
+          id="skillCategory"
+          value={skillCategory}
+          onChange={(e) => setSkillCategory(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="profilePicture">Profile Picture (Optional)</label>
+        <input
+          type="file"
+          id="profilePicture"
+          onChange={(e) => setProfilePicture(e.target.files[0])}
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 

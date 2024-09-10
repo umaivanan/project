@@ -1,95 +1,94 @@
 /* Base Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5e7b2; /* Light cream background */
-  }
-  
-  .blank-container {
-    padding: 40px;
-    text-align: center;
-    background-color: #f5e7b2; /* Light background */
-  }
-  
-  /* Page Title */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5e7b2; /* Light cream background */
+}
+
+.blank-container {
+  padding: 40px;
+  text-align: center;
+  background-color: #f5e7b2; /* Light background */
+}
+
+/* Page Title */
+.page-title {
+  font-size: 3rem;
+  color: #973131; /* Dark red */
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+/* Skills Grid Layout */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Individual Skill Card */
+.skill-card {
+  background-color: #f9d689; /* Golden yellow */
+  border-radius: 15px;
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e0a75e; /* Darker golden border */
+}
+
+/* Skill Card Hover Effect */
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Skill Name */
+.skill-name {
+  font-size: 1.5rem;
+  color: #973131; /* Dark red */
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Skill Category */
+.skill-category {
+  font-size: 1.2rem;
+  color: #e0a75e; /* Darker gold */
+}
+
+/* No Skills Message */
+.no-skills-message {
+  font-size: 1.5rem;
+  color: #973131; /* Dark red */
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .page-title {
-    font-size: 3rem;
-    color: #973131; /* Dark red */
-    margin-bottom: 40px;
-    font-weight: bold;
+    font-size: 2.5rem;
   }
-  
-  /* Skills Grid Layout */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    justify-items: center;
-  }
-  
-  /* Individual Skill Card */
+
   .skill-card {
-    background-color: #f9d689; /* Golden yellow */
-    border-radius: 15px;
-    padding: 20px;
-    width: 100%;
-    max-width: 300px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 2px solid #e0a75e; /* Darker golden border */
+    padding: 15px;
+    max-width: 90%;
   }
-  
-  /* Skill Card Hover Effect */
-  .skill-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 2rem;
   }
-  
-  /* Skill Name */
-  .skill-name {
-    font-size: 1.5rem;
-    color: #973131; /* Dark red */
-    margin-bottom: 10px;
-    font-weight: bold;
+
+  .skill-card {
+    padding: 10px;
   }
-  
-  /* Skill Category */
-  .skill-category {
-    font-size: 1.2rem;
-    color: #e0a75e; /* Darker gold */
-  }
-  
-  /* No Skills Message */
-  .no-skills-message {
-    font-size: 1.5rem;
-    color: #973131; /* Dark red */
-    margin-top: 20px;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .page-title {
-      font-size: 2.5rem;
-    }
-  
-    .skill-card {
-      padding: 15px;
-      max-width: 90%;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .page-title {
-      font-size: 2rem;
-    }
-  
-    .skill-card {
-      padding: 10px;
-    }
-  }
-  
+}
