@@ -18,7 +18,7 @@ const RegisterPage = () => {
         password: ""
     });
 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const handleInput = (event) => {
         setInputs({ ...inputs, [event.target.name]: event.target.value });
@@ -62,11 +62,7 @@ const RegisterPage = () => {
 
             if (response.ok) {
                 console.log("User registered successfully:", data);
-                if (data.role === 'admin') {
-                    navigate('/admin-dashboard');
-                } else {
-                    navigate('/link');
-                }
+                navigate('/list'); // Redirect to SkillList page after successful registration
             } else {
                 setErrors({ ...errors, custom_error: data.error || 'Something went wrong' });
             }

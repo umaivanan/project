@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './SkillList.css'; // Custom styling
 
 const SkillList = () => {
   const [skills, setSkills] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSkills = async () => {
@@ -29,6 +32,18 @@ const SkillList = () => {
     fetchUsers();
   }, []);
 
+  const handleShowMore = (skillId) => {
+    navigate(`/skills/${skillId}`);
+  };
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredSkills = skills.filter((skill) =>
+    skill.skillCategory.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="skilllist-container">
       {/* Left Section: User profile information */}
@@ -36,7 +51,7 @@ const SkillList = () => {
         <div className="user-info">
           <h2>Your Profile</h2>
           <img
-            src="https://via.placeholder.com/100"
+            src="https://via.placeholder.com/120"
             alt="Profile"
             className="profile-pic"
           />
@@ -45,12 +60,21 @@ const SkillList = () => {
         </div>
       </div>
 
-      {/* Center Section: Cards of skills */}
+      {/* Center Section: Search bar and Cards of skills */}
       <div className="center-section">
         <h1 className="page-title">Explore Talents</h1>
+        <div className="search-bar-container">
+          <input
+            type="text"
+            className="search-input"
+            placeholder="What kind of skill do you need?"
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+        </div>
         <div className="skills-grid">
-          {skills.length > 0 ? (
-            skills.map((skill) => (
+          {filteredSkills.length > 0 ? (
+            filteredSkills.map((skill) => (
               <div key={skill._id} className="skill-card">
                 <h3 className="skill-name">{skill.profileName}</h3>
                 <p className="skill-category">{skill.skillCategory}</p>
@@ -61,6 +85,12 @@ const SkillList = () => {
                     className="profile-picture"
                   />
                 )}
+                <button
+                  className="show-more-button"
+                  onClick={() => handleShowMore(skill._id)}
+                >
+                  Show More
+                </button>
               </div>
             ))
           ) : (
@@ -82,6 +112,7 @@ const SkillList = () => {
       </div>
     </div>
   );
+  
 };
 
 export default SkillList;

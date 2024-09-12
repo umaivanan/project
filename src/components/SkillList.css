@@ -1,3 +1,73 @@
+/* General body styling to center the form vertically and horizontally */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0f7fa; /* Light cyan background */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Container to center the form */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Styling for the Skill Form */
+form {
+  background-color: #ffffff; /* White background for the form */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  margin-bottom: 40px;
+}
+
+form div {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #00796b; /* Teal color for the labels */
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #004d40; /* Dark teal border */
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: #fafafa;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background-color: #00796b; /* Teal background */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #004d40; /* Dark teal on hover */
+}
+
+/* Styling for the Skill List Display */
 .skilllist-container {
   display: flex;
   justify-content: space-between;
@@ -6,65 +76,95 @@
 
 .left-section, .center-section, .right-section {
   flex: 1;
-  margin: 0 10px;
+  margin: 0 15px;
 }
 
 .left-section {
-  max-width: 250px;
+  max-width: 270px;
 }
 
 .user-info {
   text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .profile-pic {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
 }
 
 .center-section {
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .page-title {
   text-align: center;
+  color: #00796b;
   margin-bottom: 20px;
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 600px;
+  padding: 14px;
+  border: 2px solid #00796b; /* Teal border */
+  border-radius: 8px;
+  font-size: 18px;
+  box-sizing: border-box;
+  background-color: #ffffff;
 }
 
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
   justify-content: center;
 }
 
 .skill-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  width: 200px;
+  border: 1px solid #b2dfdb; /* Light teal border */
+  border-radius: 12px;
+  padding: 15px;
+  width: 220px;
   text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .skill-name {
-  font-size: 1.2em;
+  font-size: 1.3em;
+  color: #00796b;
   margin: 10px 0;
 }
 
 .skill-category {
-  color: #888;
+  color: #00796b;
 }
 
 .profile-picture {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .right-section {
-  max-width: 250px;
+  max-width: 270px;
 }
 
 .user-list {
@@ -73,6 +173,55 @@
 }
 
 .user-list li {
-  border-bottom: 1px solid #ddd;
-  padding: 10px;
+  border-bottom: 1px solid #b2dfdb;
+  padding: 12px;
+}
+
+/* Styling for the cards */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  flex: 1 1 30%;
+  min-width: 260px;
+  max-width: 320px;
+  position: relative;
+}
+
+.card h3 {
+  color: #00796b;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 22px;
+}
+
+.show-more-btn {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.show-more-btn:hover {
+  background-color: #004d40;
 }

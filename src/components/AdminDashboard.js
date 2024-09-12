@@ -24,7 +24,6 @@ const AdminDashboard = () => {
   return (
     <div className="admin-dashboard">
       <h1>Admin Dashboard</h1>
-
       <section>
         <h2>Skills</h2>
         <table>
