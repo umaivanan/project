@@ -12,7 +12,7 @@ const SkillList = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await axios.get('http://localhost:8600/api/skills');
+        const response = await axios.get('http://localhost:8800/api/skills');
         setSkills(response.data);
       } catch (error) {
         console.error('Error fetching skills:', error);
@@ -21,7 +21,7 @@ const SkillList = () => {
 
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:8600/api/users');
+        const response = await axios.get('http://localhost:8800/api/users');
         setAllUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -80,7 +80,7 @@ const SkillList = () => {
                 <p className="skill-category">{skill.skillCategory}</p>
                 {skill.profilePicture && (
                   <img
-                    src={`http://localhost:8600${skill.profilePicture}`}
+                    src={`http://localhost:8800${skill.profilePicture}`}
                     alt={skill.profileName}
                     className="profile-picture"
                   />

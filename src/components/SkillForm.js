@@ -20,15 +20,15 @@ const SkillForm = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8600/api/skills', formData, {
+      const response = await axios.post('http://localhost:8800/api/skills', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
       console.log(response.data);
 
-      // Redirect to Blank.js after successful submission
-      navigate('/list'); // Assuming Blank.js route is set to '/blank'
+      // Navigate to additionalInformation.js after successful submission
+      navigate('/additionalInformation'); // Redirects to additionalInformation
     } catch (error) {
       console.error('Error uploading skill', error);
     }
@@ -62,7 +62,7 @@ const SkillForm = () => {
           onChange={(e) => setProfilePicture(e.target.files[0])}
         />
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit">Continue</button> {/* Button will now navigate to additionalInformation */}
     </form>
   );
 };

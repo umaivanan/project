@@ -7,6 +7,9 @@ import AdminDashboard from './components/AdminDashboard';
 import Blank from './components/Blank';
 import SkillForm from './components/SkillForm';
 import SkillList from './components/SkillList';
+import AdditionalInformation from './components/AdditionalInformation';
+import DataDisplay from './components/DisplayData';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -21,6 +24,8 @@ function App() {
         <Route path="/blank" element={<Blank />} />
         <Route path="/skill-form" element={<SkillForm />} /> {/* SkillForm route */}
         <Route path="/list" element={<SkillList />} />
+        <Route path="/additionalInformation" element={<AdditionalInformation />} />
+        <Route path="/data-display" element={<DataDisplay />} />
       </Routes>
     </Router>
   );

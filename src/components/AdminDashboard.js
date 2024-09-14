@@ -9,8 +9,8 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const skillsResponse = await axios.get('http://localhost:8600/api/skills');
-        const usersResponse = await axios.get('http://localhost:8600/api/auth/admin/users');
+        const skillsResponse = await axios.get('http://localhost:8800/api/skills');
+        const usersResponse = await axios.get('http://localhost:8800/api/auth/admin/users');
         setSkills(skillsResponse.data);
         setUsers(usersResponse.data);
       } catch (error) {
