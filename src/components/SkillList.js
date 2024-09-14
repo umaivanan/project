@@ -33,7 +33,7 @@ const SkillList = () => {
   }, []);
 
   const handleShowMore = (skillId) => {
-    navigate(`/skills/${skillId}`);
+    navigate(`/display-data/${skillId}`);
   };
 
   const handleSearch = (event) => {
@@ -112,7 +112,6 @@ const SkillList = () => {
       </div>
     </div>
   );
-  
 };
 
 export default SkillList;

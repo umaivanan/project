@@ -8,7 +8,7 @@ import Blank from './components/Blank';
 import SkillForm from './components/SkillForm';
 import SkillList from './components/SkillList';
 import AdditionalInformation from './components/AdditionalInformation';
-import DataDisplay from './components/DisplayData';
+import DisplayData from './components/DisplayData';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -22,10 +22,11 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/blank" element={<Blank />} />
-        <Route path="/skill-form" element={<SkillForm />} /> {/* SkillForm route */}
+        <Route path="/skill-form" element={<SkillForm />} />
         <Route path="/list" element={<SkillList />} />
         <Route path="/additionalInformation" element={<AdditionalInformation />} />
-        <Route path="/data-display" element={<DataDisplay />} />
+        {/* Updated path for DataDisplay component with dynamic ID parameter */}
+        <Route path="/display-data/:skillId" element={<DisplayData />} /> {/* Route with skillId param */}
       </Routes>
     </Router>
   );
